@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Expense Tracking| Client{% endblock %}
+{% block contentheader %}Client{% endblock %}
+{% block content %}
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Client Table</h3>
+              <a href="/client/create/"><button type="button" class="btn btn-success btn-flat pull-right">Add Client</button></a>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in object_list %}
+                    <tr>
+                      <td>{{ obj.name | title }}</td>
+                      <td><a href="/client/edit/{{obj.id}}/">Edit</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+  </div>
+{% endblock %}
